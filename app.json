@@ -14,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "userInterfaceStyle": "light",
     "ios": {
       "config": {
@@ -46,7 +44,6 @@
       "permissions": [],
       "versionCode": 34
     },
-    "entryPoint": "node_modules/expo/AppEntry.js",
     "description": "My App",
     "extra": {
       "eas": {
