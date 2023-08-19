@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "Lyntel eSIM",
+    "slug": "lyntel-esim",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "com.lyntel.app",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "userInterfaceStyle": "light",
+    "ios": {
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "bundleIdentifier": "com.lyntel.app",
+      "userInterfaceStyle": "light",
+      "infoPlist": {
+        "UIUserInterfaceStyle": "light",
+        "config": {
+          "usesNonExemptEncryption": false
+        },
+        "CFBundleAllowMixedLocalizations": true,
+        "UIRequiresFullScreen": false,
+        "UISupportedInterfaceOrientations~iphone": [
+          "UIInterfaceOrientationPortrait"
+        ],
+        "UISupportedInterfaceOrientations~ipad": [
+          "UIInterfaceOrientationPortrait"
+        ]
+      },
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.lyntel.app",
+      "userInterfaceStyle": "light",
+      "permissions": [],
+      "versionCode": 34
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js",
+    "description": "Lyntel eSIM App",
+    "extra": {
+      "eas": {
+        "projectId": "723eae5c-e4b9-475d-8513-61afa8e1e09b"
+      }
+    }
+  }
+}
