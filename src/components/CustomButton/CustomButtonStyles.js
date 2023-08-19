@@ -1,7 +1,5 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { moderateScale } from "react-native-size-matters";
-const fullWidth = Dimensions.get("screen").width;
-const fullHeight = Dimensions.get("screen").height;
 
 const CustomButtonStyles = StyleSheet.create({
   button: {

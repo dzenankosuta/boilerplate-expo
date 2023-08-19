@@ -4,9 +4,13 @@ import { TouchableOpacity, Text } from "react-native";
 import styles from "./CustomButtonStyles";
 
 export const CustomButton = ({
+  // eslint-disable-next-line react/prop-types
   text,
+  // eslint-disable-next-line react/prop-types
   onPress,
+  // eslint-disable-next-line react/prop-types
   type = "primary",
+  // eslint-disable-next-line react/prop-types
   disabled = false,
 }) => {
   const { colors } = useTheme();

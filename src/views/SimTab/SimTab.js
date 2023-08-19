@@ -4,7 +4,7 @@ import styles from "./SimTabStyles";
 
 const SimTab = () => {
   return (
-    <View>
+    <View style={[styles.container]}>
       <Text>SimTab</Text>
     </View>
   );

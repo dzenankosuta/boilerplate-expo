@@ -1,6 +1,11 @@
 import { StyleSheet } from "react-native";
-import { moderateScale } from "react-native-size-matters";
 
-const SimTabStyles = StyleSheet.create({});
+const SimTabStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+});
 
 export default SimTabStyles;

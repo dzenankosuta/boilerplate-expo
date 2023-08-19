@@ -109,7 +109,7 @@ const Tabs = () => {
               </Text>
             </View>
           ),
-          tabBarLabel: ({ color, focused }) => focused && <View></View>,
+          tabBarLabel: ({ focused }) => focused && <View></View>,
           tabStyle: styles.tabStyles,
           labelStyle: styles.labelStyles,
         }}
@@ -130,7 +130,7 @@ const Tabs = () => {
               </Text>
             </View>
           ),
-          tabBarLabel: ({ color, focused }) => focused && <View></View>,
+          tabBarLabel: ({ focused }) => focused && <View></View>,
           tabStyle: styles.tabStyles,
           labelStyle: styles.labelStyles,
         }}
@@ -151,7 +151,7 @@ const Tabs = () => {
               </Text>
             </View>
           ),
-          tabBarLabel: ({ color, focused }) => focused && <View></View>,
+          tabBarLabel: ({ focused }) => focused && <View></View>,
           tabStyle: styles.tabStyles,
           labelStyle: styles.labelStyles,
         }}
@@ -162,7 +162,6 @@ const Tabs = () => {
 
 const StoreNavigation = () => {
   const { colors } = useTheme();
-  const { t } = useTranslation();
   return (
     <Stack.Navigator
       screenOptions={{
@@ -190,18 +189,20 @@ const StoreNavigation = () => {
         name="store"
         component={StoreTab}
         options={{
-          headerStyle: {
-            height: Platform.OS === "ios" ? 110 : 150,
-            backgroundColor: colors.background,
-            elevation: 0,
-            shadowOpacity: 0,
-            borderBottomColor: "transparent",
-          },
-          headerTitle: t("hello"),
-          headerTitleAlign: "left",
+          headerTitle: (props) => (
+            <Text
+              style={{
+                color: colors.text,
+                textAlign: "center",
+                fontFamily: "PopinsRegular",
+              }}
+            >
+              {props.children}
+            </Text>
+          ),
+          headerTitleAlign: "center",
           headerTitleStyle: {
-            color: colors.text,
-            marginTop: 70,
+            color: colors.background,
             fontFamily: "PopinsRegular",
           },
           headerRight: false,
@@ -244,7 +245,17 @@ const SimNavigation = () => {
         name="esims"
         component={SimTab}
         options={{
-          headerTitle: false,
+          headerTitle: (props) => (
+            <Text
+              style={{
+                color: colors.text,
+                textAlign: "center",
+                fontFamily: "PopinsRegular",
+              }}
+            >
+              {props.children}
+            </Text>
+          ),
           headerTitleAlign: "center",
           headerTitleStyle: {
             color: colors.background,
@@ -262,7 +273,6 @@ const SimNavigation = () => {
 
 const ProfileNavigation = () => {
   const { colors } = useTheme();
-  const { t } = useTranslation();
   return (
     <Stack.Navigator
       screenOptions={{
@@ -291,15 +301,20 @@ const ProfileNavigation = () => {
         name="profile"
         component={ProfileTab}
         options={{
-          headerStyle: {
-            height: Platform.OS === "ios" ? 110 : 150,
-            backgroundColor: colors.background,
-          },
-          headerTitle: t("profile"),
-          headerTitleAlign: "left",
+          headerTitle: (props) => (
+            <Text
+              style={{
+                color: colors.text,
+                textAlign: "center",
+                fontFamily: "PopinsRegular",
+              }}
+            >
+              {props.children}
+            </Text>
+          ),
+          headerTitleAlign: "center",
           headerTitleStyle: {
-            color: colors.text,
-            marginTop: 70,
+            color: colors.background,
             fontFamily: "PopinsRegular",
           },
           headerRight: false,

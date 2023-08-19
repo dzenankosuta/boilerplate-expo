@@ -1,5 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { moderateScale } from "react-native-size-matters";
+import { StyleSheet } from "react-native";
 
 const ProfileTabStyles = StyleSheet.create({
   container: {

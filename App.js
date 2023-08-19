@@ -1,23 +1,21 @@
 import "react-native-gesture-handler";
-import React, { useCallback, useEffect, useState, useRef } from "react";
-import { Text, View, Button, Platform, SafeAreaView } from "react-native";
-import { NavigationContainer, useTheme } from "@react-navigation/native";
-import { useDispatch, Provider, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { SafeAreaView } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { Provider, useSelector } from "react-redux";
 import { store } from "./store";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { StatusBar } from "expo-status-bar";
-import * as SplashScreen from "expo-splash-screen";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+// import * as SplashScreen from "expo-splash-screen";
+// import AsyncStorage from "@react-native-async-storage/async-storage";
 import { I18nextProvider, useTranslation } from "react-i18next";
 import i18n from "./i18n";
 // import { themeSlice } from "./src/store/themeSlice";
-import { authSlice } from "./src/store/authSlice";
+// import { authSlice } from "./src/store/authSlice";
 import Tabs from "./src/components/Tabs/Tabs";
 import ActivityScreen from "./src/views/ActivityScreen/ActivityScreen";
 // import * as Device from "expo-device";
 // import * as Notifications from "expo-notifications";
-import axios from "axios";
-import { restApiUrl } from "./config/api";
 import useAppFonts from "./src/hooks/useAppFonts";
 
 // Keep the splash screen visible while we fetch resources
@@ -34,16 +32,16 @@ import useAppFonts from "./src/hooks/useAppFonts";
 const queryClient = new QueryClient();
 
 const NavigationComponent = () => {
-  const { colors } = useTheme();
-  const dispatch = useDispatch();
+  // const { colors } = useTheme();
+  // const dispatch = useDispatch();
   const { areFontsLoaded } = useAppFonts();
   const { selectedTheme } = useSelector((state) => state.theme);
   // const { id } = useSelector((state) => state.auth);
-  const { isAdmin } = useSelector((state) => state.auth);
+  // const { isAdmin } = useSelector((state) => state.auth);
   const [appIsReady, setAppIsReady] = useState(false);
-  const [isLangNotSelected, setIsLangNotSelected] = useState(false);
-  const { t, i18n } = useTranslation();
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLangNotSelected, setIsLangNotSelected] = useState(false);
+  const { t } = useTranslation();
+  const [isLoading] = useState(false);
   // states and refs for push notifications:
   // const [expoPushToken, setExpoPushToken] = useState('');
   // const [notification, setNotification] = useState(false);
@@ -148,10 +146,10 @@ const NavigationComponent = () => {
 
   (async () => {
     try {
-      const token = await AsyncStorage.getItem("auth_token");
-      if (token) {
-        dispatch(authSlice.actions.setToken(token));
-      }
+      // const token = await AsyncStorage.getItem("auth_token");
+      // if (token) {
+      //   dispatch(authSlice.actions.setToken(token));
+      // }
     } finally {
       setTimeout(() => {
         if (areFontsLoaded) {
@@ -203,16 +201,16 @@ const NavigationComponent = () => {
   //   })();
   // }, [id]);
 
-  const onLayoutRootView = useCallback(async () => {
-    if (appIsReady) {
-      // This tells the splash screen to hide immediately! If we call this after
-      // `setAppIsReady`, then we may see a blank screen while the app is
-      // loading its initial state and rendering its first pixels. So instead,
-      // we hide the splash screen once we know the root view has already
-      // performed layout.
-      await SplashScreen.hideAsync();
-    }
-  }, [appIsReady]);
+  // const onLayoutRootView = useCallback(async () => {
+  //   if (appIsReady) {
+  //     // This tells the splash screen to hide immediately! If we call this after
+  //     // `setAppIsReady`, then we may see a blank screen while the app is
+  //     // loading its initial state and rendering its first pixels. So instead,
+  //     // we hide the splash screen once we know the root view has already
+  //     // performed layout.
+  //     await SplashScreen.hideAsync();
+  //   }
+  // }, [appIsReady]);
 
   if (!appIsReady) {
     return null;

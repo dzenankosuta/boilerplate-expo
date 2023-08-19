@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Lyntel eSIM",
-    "slug": "lyntel-esim",
+    "name": "App Namee",
+    "slug": "app-namee",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "scheme": "com.lyntel.app",
+    "scheme": "com.namee.app",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "cover",
@@ -22,7 +22,7 @@
       "config": {
         "usesNonExemptEncryption": false
       },
-      "bundleIdentifier": "com.lyntel.app",
+      "bundleIdentifier": "com.namee.app",
       "userInterfaceStyle": "light",
       "infoPlist": {
         "UIUserInterfaceStyle": "light",
@@ -41,16 +41,16 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.lyntel.app",
+      "package": "com.namee.app",
       "userInterfaceStyle": "light",
       "permissions": [],
       "versionCode": 34
     },
     "entryPoint": "node_modules/expo/AppEntry.js",
-    "description": "Lyntel eSIM App",
+    "description": "My App",
     "extra": {
       "eas": {
-        "projectId": "723eae5c-e4b9-475d-8513-61afa8e1e09b"
+        "projectId": "1e7d59dc-2474-434d-9fc2-8c46dd248d0c"
       }
     }
   }

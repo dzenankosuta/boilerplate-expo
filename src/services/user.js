@@ -32,87 +32,78 @@ export const login = async (data) => {
     }
     return response.data;
   } catch (error) {
-    // console.log("Error:", error.response);
-    throw error;
+    throw new Error(error?.response?.data?.message || "Request failed");
   }
 };
 
-export const signup = (data) =>
-  new Promise(async (resolve, reject) => {
-    try {
-      const user = await axios.post(`${restApiUrl.prod}/users/`, data, {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      resolve(user.data);
-    } catch (error) {
-      reject(error);
-    }
-  });
+export const signup = async (data) => {
+  try {
+    const user = await axios.post(`${restApiUrl.prod}/users/`, data, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return user.data;
+  } catch (error) {
+    throw new Error(error?.response?.data?.message || "Request failed");
+  }
+};
 
-export const editUser = (data, userId) =>
-  new Promise(async (resolve, reject) => {
-    try {
-      const user = await axios.put(`${restApiUrl.prod}/users/${userId}`, data, {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      resolve(user.data);
-    } catch (error) {
-      reject(error);
-    }
-  });
+export const editUser = async (data, userId) => {
+  try {
+    const user = await axios.put(`${restApiUrl.prod}/users/${userId}`, data, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return user.data;
+  } catch (error) {
+    throw new Error(error?.response?.data?.message || "Request failed");
+  }
+};
 
-export const deleteUser = (userId) =>
-  new Promise(async (resolve, reject) => {
-    try {
-      const config = {
-        headers: {
-          Accept: `*/*`,
-        },
-      };
-      const user = await axios.delete(
-        `${restApiUrl.prod}/users/${userId}`,
-        config
-      );
-      resolve(user);
-    } catch (error) {
-      reject(error);
-      // console.log(error);
-    }
-  });
+export const deleteUser = async (userId) => {
+  try {
+    const config = {
+      headers: {
+        Accept: `*/*`,
+      },
+    };
+    const user = await axios.delete(
+      `${restApiUrl.prod}/users/${userId}`,
+      config
+    );
+    return user;
+  } catch (error) {
+    throw new Error(error?.response?.data?.message || "Request failed");
+  }
+};
 
-export const newPassword = (data) =>
-  new Promise(async (resolve, reject) => {
-    try {
-      const info = await axios.post(
-        `${restApiUrl.prod}/user/forgot-password`,
-        data
-      );
-      resolve(info);
-    } catch (error) {
-      reject(error);
-      // console.log(error);
-    }
-  });
+export const newPassword = async (data) => {
+  try {
+    const info = await axios.post(
+      `${restApiUrl.prod}/user/forgot-password`,
+      data
+    );
+    return info;
+  } catch (error) {
+    throw new Error(error?.response?.data?.message || "Request failed");
+  }
+};
 
-export const getMeInfo = (token) =>
-  new Promise(async (resolve, reject) => {
-    try {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          Accept: "application/json",
-        },
-      };
-      const meInfo = await axios.get(`${restApiUrl.prod}/auth/me`, config);
-      resolve(meInfo.data);
-    } catch (error) {
-      reject(error);
-      // console.log(error);
-    }
-  });
+export const getMeInfo = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+      },
+    };
+    const meInfo = await axios.get(`${restApiUrl.prod}/auth/me`, config);
+    return meInfo.data;
+  } catch (error) {
+    throw new Error(error?.response?.data?.message || "Request failed");
+  }
+};

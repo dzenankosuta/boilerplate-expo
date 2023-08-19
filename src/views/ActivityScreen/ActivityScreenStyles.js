@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 
 const ActivityScreenStyles = StyleSheet.create({
