@@ -1,14 +1,14 @@
 import React from "react";
 import { Text, View, Platform } from "react-native";
-import { FontAwesome, FontAwesome5 } from "react-native-vector-icons";
+import { FontAwesome, Ionicons, Entypo } from "react-native-vector-icons";
 import { useTheme } from "@react-navigation/native";
 import { moderateScale } from "react-native-size-matters";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useTranslation } from "react-i18next";
 import styles from "./TabsStyles";
-import StoreTab from "../../views/StoreTab/StoreTab";
-import SimTab from "../../views/SimTab/SimTab";
+import HomeTab from "../../views/HomeTab/HomeTab";
+import GameTab from "../../views/GameTab/GameTab";
 import ProfileTab from "../../views/ProfileTab/ProfileTab";
 
 const Stack = createStackNavigator();
@@ -95,17 +95,17 @@ const Tabs = () => {
     >
       <Tab.Screen
         name="home"
-        component={StoreNavigation}
+        component={HomeNavigation}
         options={{
           tabBarIcon: ({ color }) => (
             <View style={[styles.tabContainer]}>
               <Text style={[styles.iconStyle]}>
-                <FontAwesome5 size={24} name="store" color={color} />
+                <Entypo size={24} name="home" color={color} />
               </Text>
               <Text
                 style={[styles.tabName, { color, fontFamily: "PopinsRegular" }]}
               >
-                {t("store")}
+                {t("home")}
               </Text>
             </View>
           ),
@@ -115,18 +115,18 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="additives"
-        component={SimNavigation}
+        name="game"
+        component={GameNavigation}
         options={{
           tabBarIcon: ({ color }) => (
             <View style={[styles.tabContainer]}>
               <Text style={[styles.iconStyle]}>
-                <FontAwesome5 size={24} name="sim-card" color={color} />
+                <Ionicons size={24} name="game-controller" color={color} />
               </Text>
               <Text
                 style={[styles.tabName, { color, fontFamily: "PopinsRegular" }]}
               >
-                {t("my_esims")}
+                {t("game")}
               </Text>
             </View>
           ),
@@ -136,7 +136,7 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="recommendations"
+        name="profile"
         component={ProfileNavigation}
         options={{
           tabBarIcon: ({ color }) => (
@@ -160,8 +160,9 @@ const Tabs = () => {
   );
 };
 
-const StoreNavigation = () => {
+const HomeNavigation = () => {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   return (
     <Stack.Navigator
       screenOptions={{
@@ -183,13 +184,13 @@ const StoreNavigation = () => {
         headerBackTitleVisible: false,
         headerTintColor: colors.background2,
       }}
-      initialRouteName="store"
+      initialRouteName="home"
     >
       <Stack.Screen
-        name="store"
-        component={StoreTab}
+        name="home"
+        component={HomeTab}
         options={{
-          headerTitle: (props) => (
+          headerTitle: () => (
             <Text
               style={{
                 color: colors.text,
@@ -197,7 +198,7 @@ const StoreNavigation = () => {
                 fontFamily: "PopinsRegular",
               }}
             >
-              {props.children}
+              {t("home")}
             </Text>
           ),
           headerTitleAlign: "center",
@@ -215,9 +216,9 @@ const StoreNavigation = () => {
   );
 };
 
-const SimNavigation = () => {
+const GameNavigation = () => {
   const { colors } = useTheme();
-
+  const { t } = useTranslation();
   return (
     <Stack.Navigator
       screenOptions={{
@@ -239,13 +240,13 @@ const SimNavigation = () => {
         headerBackTitleVisible: false,
         headerTintColor: colors.background2,
       }}
-      initialRouteName="esims"
+      initialRouteName="game"
     >
       <Stack.Screen
-        name="esims"
-        component={SimTab}
+        name="game"
+        component={GameTab}
         options={{
-          headerTitle: (props) => (
+          headerTitle: () => (
             <Text
               style={{
                 color: colors.text,
@@ -253,7 +254,7 @@ const SimNavigation = () => {
                 fontFamily: "PopinsRegular",
               }}
             >
-              {props.children}
+              {t("game")}
             </Text>
           ),
           headerTitleAlign: "center",
@@ -273,6 +274,7 @@ const SimNavigation = () => {
 
 const ProfileNavigation = () => {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   return (
     <Stack.Navigator
       screenOptions={{
@@ -301,7 +303,7 @@ const ProfileNavigation = () => {
         name="profile"
         component={ProfileTab}
         options={{
-          headerTitle: (props) => (
+          headerTitle: () => (
             <Text
               style={{
                 color: colors.text,
@@ -309,7 +311,7 @@ const ProfileNavigation = () => {
                 fontFamily: "PopinsRegular",
               }}
             >
-              {props.children}
+              {t("profile")}
             </Text>
           ),
           headerTitleAlign: "center",
