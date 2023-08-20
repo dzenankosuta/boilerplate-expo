@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 
-const ProfileTabStyles = StyleSheet.create({
+const GameTabStyles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "flex-start",
@@ -13,4 +13,4 @@ const ProfileTabStyles = StyleSheet.create({
   },
 });
 
-export default ProfileTabStyles;
+export default GameTabStyles;
