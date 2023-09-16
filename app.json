@@ -14,26 +14,29 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "userInterfaceStyle": "light",
     "ios": {
       "config": {
         "usesNonExemptEncryption": false
       },
       "bundleIdentifier": "com.namee.app",
-      "userInterfaceStyle": "light",
       "infoPlist": {
-        "UIUserInterfaceStyle": "light",
         "config": {
           "usesNonExemptEncryption": false
         },
         "CFBundleAllowMixedLocalizations": true,
-        "UIRequiresFullScreen": false,
+        "UIRequiresFullScreen": true,
         "UISupportedInterfaceOrientations~iphone": [
           "UIInterfaceOrientationPortrait"
         ],
         "UISupportedInterfaceOrientations~ipad": [
-          "UIInterfaceOrientationPortrait"
+          "UIInterfaceOrientationPortrait",
+          "UIInterfaceOrientationPortraitUpsideDown",
+          "UIInterfaceOrientationLandscapeLeft",
+          "UIInterfaceOrientationLandscapeRight"
         ]
       },
       "supportsTablet": true
@@ -42,12 +45,12 @@
       "package": "com.namee.app",
       "userInterfaceStyle": "light",
       "permissions": [],
-      "versionCode": 34
+      "versionCode": 1
     },
     "description": "My App",
     "extra": {
       "eas": {
-        "projectId": "1e7d59dc-2474-434d-9fc2-8c46dd248d0c"
+        "projectId": "5fafe623-438a-45f8-9e6f-f5d38e77c01a"
       }
     }
   }
